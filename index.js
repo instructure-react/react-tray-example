@@ -67,9 +67,11 @@ var App = React.createClass({
           <div>
             <h2>Foo</h2>
             <div>Content for foo</div>
-            <div><a href="javascript://">A</a></div>
-            <div><a href="javascript://">B</a></div>
-            <div><a href="javascript://">C</a></div>
+            <nav role="navigation">
+              <div><a href="javascript://">A</a></div>
+              <div><a href="javascript://">B</a></div>
+              <div><a href="javascript://">C</a></div>
+            </nav>
           </div>
         );
         break;
@@ -78,9 +80,11 @@ var App = React.createClass({
           <div>
             <h2>Bar</h2>
             <div>Lorem Ipsum</div>
-            <div><a href="javascript://">A</a></div>
-            <div><a href="javascript://">B</a></div>
-            <div><a href="javascript://">C</a></div>
+            <nav role="navigation">
+              <div><a href="javascript://">A</a></div>
+              <div><a href="javascript://">B</a></div>
+              <div><a href="javascript://">C</a></div>
+            </nav>
           </div>
         );
         break;
@@ -89,9 +93,11 @@ var App = React.createClass({
           <div>
             <h2>Baz</h2>
             <div>Other stuff here</div>
-            <div><a href="javascript://">A</a></div>
-            <div><a href="javascript://">B</a></div>
-            <div><a href="javascript://">C</a></div>
+            <nav role="navigation">
+              <div><a href="javascript://">A</a></div>
+              <div><a href="javascript://">B</a></div>
+              <div><a href="javascript://">C</a></div>
+            </nav>
           </div>
         );
         break;
@@ -105,33 +111,37 @@ var App = React.createClass({
   render: function () {
     return (
       <div>
-        <menu ref="menu" role="navigation" className={cx({
+        <ul role="menu" className={cx({
             'navigation': true,
             'navigation-left': this.state.orientation === 'left',
             'navigation-right': this.state.orientation === 'right'
           })}
         >
-          <ul>
-            <li className={cx({ active: this.state.type === 'foo' })}>
-              <a tabIndex={0}
-                 data-type="foo"
-                 onKeyPress={this.handleNavKeyPress}
-                 onClick={this.handleNavClick}>Foo</a>
-            </li>
-            <li className={cx({ active: this.state.type === 'bar' })}>
-              <a tabIndex={0}
-                 data-type="bar"
-                 onKeyPress={this.handleNavKeyPress}
-                 onClick={this.handleNavClick}>Bar</a>
-            </li>
-            <li className={cx({ active: this.state.type === 'baz' })}>
-              <a tabIndex={0}
-                 data-type="baz"
-                 onKeyPress={this.handleNavKeyPress}
-                 onClick={this.handleNavClick}>Baz</a>
-            </li>
-          </ul>
-        </menu>
+          <li role="menuitem"
+              className={cx({ active: this.state.type === 'foo' })}>
+            <a tabIndex={0}
+                role="button"
+                data-type="foo"
+                onKeyPress={this.handleNavKeyPress}
+                onClick={this.handleNavClick}>Foo</a>
+          </li>
+          <li role="menuitem"
+              className={cx({ active: this.state.type === 'bar' })}>
+            <a tabIndex={0}
+                role="button"
+                data-type="bar"
+                onKeyPress={this.handleNavKeyPress}
+                onClick={this.handleNavClick}>Bar</a>
+          </li>
+          <li role="menuitem"
+              className={cx({ active: this.state.type === 'baz' })}>
+            <a tabIndex={0}
+                role="button"
+                data-type="baz"
+                onKeyPress={this.handleNavKeyPress}
+                onClick={this.handleNavClick}>Baz</a>
+          </li>
+        </ul>
         <Modal ariaHideApp={false}
                isOpen={this.state.isTrayOpen}
                onRequestClose={this.closeTray}
