@@ -1,0 +1,90 @@
+<!doctype html>
+<meta charset="utf-8"/>
+<title>React Tray</title>
+<link rel="stylesheet" href="http://instructure-react.github.io/library/shared.css"/>
+<style type="text/css">
+  /* Tray/Modal styles */
+  .ReactModal__Overlay {
+    background: rgba(0, 0, 0, 0.65);
+  }
+
+  .ReactModal__Content {
+    top: 0;
+    left: auto;
+    right: auto;
+    bottom: 0;
+    padding: 10px;
+    border: 0 none;
+    border-radius: 0;
+    box-shadow: 1px 0 5px #333;
+    width: 0;
+    overflow-x: hidden;
+    white-space: nowrap;
+  }
+
+  .ReactModal__Content--after-open {
+    width: 250px;
+    transition: width 150ms ease-out;
+  }
+
+  .ReactModal__Content--before-close {
+    width: 0;
+    transition: width: 150ms ease-in;
+  }
+
+  .ReactModal__Content h2 {
+    color: rgb(60, 78, 91);
+    border-bottom: 1px solid rgb(229, 229, 229);
+    margin: 0;
+    margin-bottom: 10px;
+    padding: 10px 5px;
+  }
+
+
+  /* App specific styles */
+  .navigation {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 50px;
+    background: rgb(52, 69, 81);
+    color: rgb(235, 235, 235);
+    margin: 0;
+    padding: 0;
+    z-index: 100;
+  }
+  .navigation ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  .navigation li {
+    padding: 20px 10px;
+  }
+  .navigation li.active {
+    background: #fff;
+    color: rgb(21, 148, 218);
+  }
+  .navigation a {
+    cursor: pointer;
+  }
+  
+  .content {
+    margin: 150px auto;
+    width: 100px;
+  }
+
+  .navigation-left { left: 0; }
+  .navigation-right { right: 0; }
+  .tray-left {
+    border-right: 1px solid #333;
+    left: 50px;
+  }
+  .tray-right {
+    border-left: 1px solid #333;
+    right: 50px;
+  }
+</style>
+<body>
+  <div id="example" class="padbox"></div>
+	<script src="./bundle.js"></script>
